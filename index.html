@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>stepflo.ai — Coming Soon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #0f172a, #000);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: -1px;
+      background: linear-gradient(90deg, #00ffe1, #0075ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      max-width: 500px;
+      margin: 10px auto 30px;
+      line-height: 1.6;
+    }
+
+    .input-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    input {
+      padding: 12px 15px;
+      width: 250px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    button {
+      background: linear-gradient(90deg, #0075ff, #00ffe1);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,255,255,0.15), transparent 70%);
+      filter: blur(60px);
+      z-index: -1;
+      animation: moveGlow 10s infinite alternate ease-in-out;
+    }
+
+    @keyframes moveGlow {
+      from { transform: translate(-100px, -50px); }
+      to { transform: translate(100px, 50px); }
+    }
+
+    .launching {
+      position: absolute;
+      top: 20px;
+      font-size: 1.2rem;
+      color: #00ffe1;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .by-neha {
+      position: absolute;
+      bottom: 40px;
+      font-size: 1rem;
+      color: #00ffe1;
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="launching">🚀 Launching Soon</div>
+  <h1>stepflo.ai</h1>
+  <p>We’re building an AI-powered platform to simplify your workflow and accelerate your growth.  
+  Join the waitlist to be the first to experience it.</p>
+
+  <div class="input-container">
+    <input type="email" id="email" placeholder="Enter your email" />
+    <button id="notifyBtn">Notify Me</button>
+  </div>
+
+  <div class="by-neha">✨ By Neha</div>
+  <footer>© 2025 stepflo.ai — All rights reserved.</footer>
+
+  <script>
+    document.getElementById("notifyBtn").addEventListener("click", () => {
+      const email = document.getElementById("email").value.trim();
+      if (!email) {
+        alert("Please enter your email!");
+        return;
+      }
+      localStorage.setItem("stepflo_waitlist", email);
+      document.querySelector("p").innerText = "You're on the waitlist 🎉 We'll notify you soon!";
+      document.querySelector(".input-container").style.display = "none";
+    });
+  </script>
+</body>
+</html>
